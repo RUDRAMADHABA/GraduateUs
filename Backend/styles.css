@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: #80d4ff;
+  }
+  
+  header {
+    text-align: center;
+    margin: 0;
+    color: white;
+    background: steelblue;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .fa-calculator {
+    margin: 0 10px;
+  }
+  
+  form {
+    background-color: white;
+    max-width: 500px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0;
+    padding-bottom: 20px;
+    color: black;
+  }
+  
+  .course {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .course h2 {
+    margin-left: 10px;
+  }
+  
+  .course label,
+  input {
+    margin: 10px;
+  }
+  
+  label {
+    font-size: 18px;
+  }
+  
+  input {
+    border: 2px solid #80d4ff;
+    font-size: 16px;
+  }
+  
+  .end {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #cgpa-card {
+    margin-left: 10px;
+    display: none;
+  }
+  
+  #cgpa-card.open {
+    display: block;
+  }
+  
+  .button {
+    cursor: pointer;
+    background: steelblue;
+    color: white;
+    outline: none;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 1rem;
+    width: 120px;
+  }
+  
+  #submit-button {
+    margin: 10px;
+  }
+  
+  #reset-button {
+    margin: 5px;
+  }
+  
+  footer {
+    background: steelblue;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 24px;
+  }
+  
+  .fa-heart {
+    color: #e31b23;
+  }
+  
+  @media (max-width: 520px) {
+    body {
+      background: white;
+    }
+  
+    form {
+      max-width: auto;
+      padding: 0 30px;
+    }
+  
+    header {
+      text-align: center;
+      margin: 0;
+      color: white;
+      background: steelblue;
+      font-size: 26px;
+      font-weight: 700;
+    }
+  
+    .fa-calculator {
+      margin: 0 10px;
+    }
+  }

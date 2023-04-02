@@ -1,0 +1,248 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+
+  .homeBody{
+      display: flex;
+      flex-direction: row;
+      background-color:  #151515;
+      
+      height: 100vh;
+  }
+  
+  /* left */
+  
+  .homeLeft{
+      width: 17vw;
+      display: flex;
+      flex-direction: column;
+      padding: 2px;
+      line-height: 2rem;
+     background: #333838A6;
+  
+  }
+  
+  .lup{
+      height: 65%;
+  }
+  
+  .ldown{
+      height: 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+  }
+  
+  .hSearchBar{
+      position: relative;
+      padding: 5px;
+  }
+  
+  .hSearchBar .fa-microphone{
+      color: #121212;
+      position: absolute;
+      top: 15px;
+      left: 13.2vw;
+      cursor: pointer;
+  }
+  
+  .hSearch{
+      border-radius: 7px;
+      background: rgba(250, 250, 250, 0.93);
+  
+  
+  
+  
+      border: none;
+      color: #070707;
+      width: 90%;
+      padding: 5px 20px 5px 10px;
+  }
+  
+  /* ::placeholder{
+      color: #121212;
+      font-size: 1rem;
+  }
+   */
+  .upList, .downList{
+      text-decoration: none;
+      color: #fff;
+      list-style: none;
+      padding-left: 10px;
+  }
+  
+  .upList li, .downList li{
+      font-weight: 400;
+      font-size: 1rem;
+  }
+  
+  .upList li a, .downList li a{
+      text-decoration: none;
+      color: #fff;
+  }
+  
+  /* .upList li a i, .downList li a i{
+      padding-right: 5px;
+  } */
+  
+  .homeUser{
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      color: #fff;
+  }
+  
+  .profilePic{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .profilePic img{
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+  }
+  
+  .picRight{
+      display: flex;
+      flex-direction: column;
+  }
+  
+  /* responsive */
+  
+  @media screen and (max-width: 900px) {
+      .upList li, .downList li{
+          font-size: 1.8vw;
+      }
+    }
+  
+  /* middle */
+  
+  .homeMiddle{
+      width: 40vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .homeCard{
+      background: #333838;
+  
+      display: flex;
+      color: #fff;
+      width: 80%;
+      height: 12vw;
+      border-radius: 10px;
+      margin: 2rem;
+  }
+  
+  .imgp{
+      width: 50%;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .imgp img{
+      width: 80%;
+      height: 80%;
+  }
+  
+  .txtp{
+      width: 50%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 2vw;
+      font-weight: 500;
+  }
+  
+  .txtp p{
+      font-size: 1.8vw;
+  }
+  
+  .hCardBtn{
+      border-radius: 10rem;
+      padding: 5px 10px;
+      width: 8vw;
+      font-size: 1.2vw;
+      cursor: pointer;
+  }
+  
+  .mDownBtn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1vw;
+  }
+  
+  .mBtn{
+      background: #FFFFFF;
+      display: flex;
+      gap:5px;
+      justify-content: center;
+    align-items: center;
+      color: #121212;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 15px;
+      font-size: 15px;
+      margin: auto 1rem;
+      text-align: center;
+  }
+  
+  /* right */
+  
+  .homeRight{
+      width: 43vw;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+  }
+  
+  .backText{
+      display: flex;
+      flex-direction: column;
+      gap:40px;
+      position: absolute;
+      color: grey;
+      font-size: 5vw;
+      font-weight: 500;
+      opacity: 0.2;
+      line-height: 8vh;
+  }
+  
+  .relPart{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      width: 30vw;
+      height: 45vw;
+  }
+  
+  .homeImg img{
+      width: 20vw;
+      height: 20vw;
+      margin: auto;
+  }
+  
+  .dtxt{
+      position: relative;
+      font-size: 25px;
+      font-weight: 600;
+      margin-top: 40px;
+      color: #fff;
+      text-align: center;
+      position: 0;
+  }
+  
+  

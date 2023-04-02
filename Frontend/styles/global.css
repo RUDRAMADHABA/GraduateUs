@@ -1,0 +1,23 @@
+* {
+	margin: 0;
+	padding: 0;
+	/* background: #000; */
+	
+}
+
+a, a:active, a:visited, a:hover {
+	width: max-content;
+	text-decoration: none;
+}
+body{
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar{
+	width: 0.3em;
+  }
+  ::-webkit-scrollbar-thumb{
+	background-color: #151515;
+	height: 1em;
+  }
+  
