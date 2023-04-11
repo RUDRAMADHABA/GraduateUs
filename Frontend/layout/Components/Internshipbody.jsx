@@ -7,7 +7,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-const Internshipbody = () => {
+const Internshipbody = (props) => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const handleSearch = (event) => {
@@ -46,8 +46,8 @@ const Internshipbody = () => {
     return ( 
         <>
         <Stack marginTop={{sm:"105px",md:"125px"}} marginLeft={{sm:"106px",md:"303px"}} justifyContent="center" paddingBottom="20px" >
-        <TextField  value={searchQuery} className={styles.TextField} onChange={handleSearch} placeholder="Find internships" sx={{width:{xs:"80vw",md:"78vw"}, background: "#333838" , borderRadius: "5px" , margin:"1em 0em" , display:"flex", justifyContent:"center" ,marginRight:"10px", color:"white !important" , '&:hover fieldset': {
-        borderColor: 'black !important',
+        <TextField  value={searchQuery} className={styles.TextField} onChange={handleSearch} placeholder="Find internships" sx={{width:{xs:"80vw",md:"78vw"}, background: props.color , borderRadius: "5px" , margin:"1em 0em" , display:"flex", justifyContent:"center" ,marginRight:"10px", color: props.letter , '&:hover fieldset': {
+        borderColor: 'none !important',
       } ,  
         '& fieldset': {
           borderColor: '#333838 !important',
@@ -55,34 +55,34 @@ const Internshipbody = () => {
        , border:"none" ,  'input': {
         '&::placeholder': {
           textOverflow: 'ellipsis !important',
-          color: '#fff', opacity:"0.81",
+          color: props.letter , opacity:"0.81",
           fontWeight:"600"
         }
       } }}
      
         InputProps={{
-          style: { color: "white" , caretColor:'white' },
+          style: { color: props.letter , caretColor:'white' },
           startAdornment: (
             <InputAdornment position="start">
-             <YoutubeSearchedForIcon sx={{color:"white"}}/>
+             <YoutubeSearchedForIcon sx={{color:props.letter}}/>
             </InputAdornment>
           ),
         }}
         />
         <div style={{display:"flex" , flexDirection:"row" , margin:"0.7em 0" }}>
-        <button onClick={corebutton} className={styles.button} style={{width:"60px" , height:"28px" , border:"none" , background:"#333838" , borderRadius:"4px" , color:"white"}} >Core</button>
-        <button onClick={noncorebutton}  className={styles.button} style={{marginLeft:"1.5em", width:"95px" , height:"28px" , border:"none" , background:"#333838" , borderRadius:"4px" , color:"white"}}>Non Core</button>
+        <button onClick={corebutton} className={styles.button} style={{width:"60px" , height:"28px" , border:"none" , background:props.color , borderRadius:"4px" , color:props.letter}} >Core</button>
+        <button onClick={noncorebutton}  className={styles.button} style={{marginLeft:"1.5em", width:"95px" , height:"28px" , border:"none" , background:props.color , borderRadius:"4px" , color:props.letter}}>Non Core</button>
         </div>
         {/* core details */}
         {core && (
 <>
-        <div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:"white"}}>
+        <div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:props.letter}}>
         <h3>Actively Hiring</h3>
         <h4 style={{marginRight:"2.7em"}}>View All</h4>
        </div>
        <div style={{display:"flex" , flexDirection:"row" , justifyContent:"start" , alignItems:"center" , color:"white" , marginTop:"1em" , marginRight:"2em"}} className={styles.slider} >
         {coredata.map((data) =>(
-         <div key={data.id} className="cards" style={{width:"291px" , height:"220px" , background:data.background , borderRadius: "10px", margin:"0 1em" , flexShrink:"0" , scrollSnapAlign:"start" , display:"flex" , flexDirection:"column", gap:"5px"}}>
+         <div key={data.id} className={styles.cards} style={{width:"291px" , height:"220px" , background:data.background , borderRadius: "10px", margin:"0 1em" , flexShrink:"0" , scrollSnapAlign:"start" , display:"flex" , flexDirection:"column", gap:"5px"}}>
          <div style={{display:"flex" , justifyContent:"space-evenly" , alignItems:"start" , marginTop:"0.5em"}}>
           <div style={{minHeight:"70px" , display:"flex" , justifyContent:"center" }}>
                <img src={data.image} width='100%' height='100%' style={{objectFit:"cover"}}/>
@@ -110,7 +110,7 @@ const Internshipbody = () => {
          </div>
                  ))}
        </div>
-       <div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:"white" , marginTop:"1.5em"}}>
+       <div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:props.letter , marginTop:"1.5em"}}>
         <h3 >New Internships</h3>
         <h4 style={{marginRight:"2.7em"}}>View All</h4>
        </div>
@@ -132,7 +132,7 @@ const Internshipbody = () => {
          </div>
                  ))}
        </div>
-       <div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:"white" , marginTop:"1.5em"}}>
+       <div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:props.letter , marginTop:"1.5em"}}>
         <h3 >Recently Viewed</h3>
         <h4 style={{marginRight:"2.7em"}}>View All</h4>
        </div>
@@ -172,7 +172,7 @@ const Internshipbody = () => {
 
 {noncore && (
   <>
-<div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:"white"}}>
+<div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:props.letter}}>
         <h3>Actively Hiring</h3>
         <h4 style={{marginRight:"2.7em"}}>View All</h4>
        </div>
@@ -206,7 +206,7 @@ const Internshipbody = () => {
          </div>
                  ))}
        </div>
-       <div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:"white" , marginTop:"1.5em"}}>
+       <div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:props.letter , marginTop:"1.5em"}}>
         <h3 >New Internships</h3>
         <h4 style={{marginRight:"2.7em"}}>View All</h4>
        </div>
@@ -228,7 +228,7 @@ const Internshipbody = () => {
          </div>
                  ))}
        </div>
-       <div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:"white" , marginTop:"1.5em"}}>
+       <div style={{display:"flex" , flexDirection:"row" , justifyContent:"space-between" , alignItems:"center" , color:props.letter , marginTop:"1.5em"}}>
         <h3 >Recently Viewed</h3>
         <h4 style={{marginRight:"2.7em"}}>View All</h4>
        </div>

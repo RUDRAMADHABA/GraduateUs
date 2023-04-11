@@ -4,7 +4,6 @@ const generateToken = require("../config/generateToken");
 const nodemailer = require("nodemailer")
 const randomstring = require("randomstring")
 const bcrypt = require('bcryptjs')
-const { config, getJson } = require("serpapi");
 const dotenv = require("dotenv");
 dotenv.config()
 const axios = require('axios')
@@ -140,38 +139,83 @@ const resetPassword = async (req, res) => {
     }
 }
 
-const jobs = async (req, res) => {
-    //  res.send("ok")
-    console.log("good");
+// const jobs = async (req, res) => {
+//     //  res.send("ok")
+//     console.log("good");
 
-    const params = {
-        google_domain: "google.co.in",
-        q: "React developer", //to be passed as props
-        hl: "en",
-        gl: "in",
-        location: "Maharashtra, India", //to be added as props
-        api_key: process.env.KEY
-    };
+//     const params = {
+//         google_domain: "google.co.in",
+//         q: "React developer", //to be passed as props
+//         hl: "en",
+//         gl: "in",
+//         location: "Maharashtra, India", //to be added as props
+//         api_key: process.env.KEY,
+//         Itype
+//     };
 
-    // Show result as JSON
-    const response = await getJson("google_jobs", params);
+//     // Show result as JSON
+//     const response = await getJson("google_jobs", params);
 
-    const data = response.jobs_results
+//     const data = response.jobs_results
 
-    var result = [];
+//     var result = [];
 
-    data.forEach(function (obj) {
-        const item = new Object();
-        item.profile = obj.title
-        item.location = obj.location
-        item.company = obj.company_name
+//     data.forEach(function (obj) {
+//         const item = new Object();
+//         item.profile = obj.title
+//         item.location = obj.location
+//         item.company = obj.company_name
+//         item.salary = obj.salary
 
-        result.push(item);
-        console.log(item);
-    });
+//         result.push(item);
+//         console.log(item);
+//     });
 
-    res.send(result);
+//     res.send(result);
 
+// }
+
+//this is for jobs search api
+const searchJobs = async (req, res) => {
+    const axios = require("axios");
+
+const options = {
+  method: 'GET',
+  url: 'https://jsearch.p.rapidapi.com/search',
+  params: {query: 'Python developer in Texas, USA', page: '1', num_pages: '1'},
+  headers: {
+    'X-RapidAPI-Key': '7415646ae7msh37f791037366780p1132e2jsna7ba58f2266b',
+    'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+  }
+};
+
+axios.request(options).then(function (response) {
+	//res.send(response.data);
+    //res.send(response.data.data[0].employer_name);
+    const arr = []
+    var i=0;
+    
+     response.data.data.map((item) => {
+
+        const jobDetails = {
+            company: item.employer_name,
+            job_title: item.job_title,
+            apply_linnk: item.job_apply_link,
+            job_description: item.job_description,
+            job_is_remote: item.job_is_remote,
+            job_qulaification: item.job_highlights.Qualifications,
+            
+        }
+        
+        arr.push(jobDetails)
+    //console.log(item.employer_name)
+    }
+     )
+    res.send(arr);
+    }).catch(function (error) {
+	console.error(error);
+}
+);
 }
 
 const profileData = async (req, res) => {
@@ -209,4 +253,4 @@ const updateProfile = async (req, res) => {
 
 
 
-module.exports = { registerUser, authUser, forgetPassword, resetPassword, jobs, profileData, updateProfile };
+module.exports = { registerUser, authUser, forgetPassword, resetPassword, jobs, profileData, updateProfile, searchJobs };

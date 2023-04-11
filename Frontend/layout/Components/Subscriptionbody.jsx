@@ -6,7 +6,7 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import StarIcon from '@mui/icons-material/Star';
 import PersonIcon from '@mui/icons-material/Person';
 import TryIcon from '@mui/icons-material/Try';
-const PremiumFeature = () => {
+const PremiumFeature = (props) => {
     const theme = createTheme({
         palette: {
             primary: {
@@ -29,7 +29,7 @@ const PremiumFeature = () => {
                         <Typography sx={{ color: "#FF9900", fontSize: "40px" }}>
                             Subscription Plans
                         </Typography>
-                        <Typography sx={{ color: "#fff", fontSize: "20px", opacity: "0.81", maxWidth: "350px", textAlign: "center" }}>
+                        <Typography sx={{ color: props.letter, fontSize: "20px", opacity: "0.81", maxWidth: "350px", textAlign: "center" }}>
                             Choose a plan which is suitable
                             for you
                         </Typography>

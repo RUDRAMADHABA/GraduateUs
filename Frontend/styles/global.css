@@ -1,3 +1,8 @@
+
+html {
+	scrollbar-color: #000 #f5f5f5;
+	scrollbar-width: thin;
+  }
 * {
 	margin: 0;
 	padding: 0;
@@ -20,4 +25,23 @@ body{
 	background-color: #151515;
 	height: 1em;
   }
+  .MuiInputBase-input {
+	color: #000000;
+  }
+  input::placeholder {
+	color: #525151 !important;
+	opacity: 1 !important;
+	font-weight: 500;
+	
+  }
   
+/* .slider ::-webkit-scrollbar{
+	width: 10px!important;
+    height: 10px!important;
+  }
+.slider ::-webkit-scrollbar-thumb{
+	background-color: #b8a5a5!important;
+  }
+  .slider::-webkit-scrollbar{
+	width: 0.3em;
+  } */

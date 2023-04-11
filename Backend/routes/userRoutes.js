@@ -16,6 +16,7 @@ router.route('/reset-password').get(resetPassword)
 router.route('/edit').get(protect, profileData)
 router.route('/edit').put(protect, updateProfile)
 router.get("/jobs", userController.jobs)
+router.get("/searchJobs", userController.searchJobs)
 
 //For Google Sign up
 router.use("/GoogleSignup", GoogleRoutes)

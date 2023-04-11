@@ -58,7 +58,7 @@ const Cgpa = () => {
              animate={{y:0 , opacity:1}}
              transition={{duration:0.7 , delay:0.5 }}
             >
-          <Link href='/'> <button style={{background: "#000000",borderRadius: "34.5px" , color:"white" , border:"none" , padding:"0.5em 1.5em" , marginRight:"0.5em", position:"relative", bottom:"5em" , fontSize:"22px" , fontWeight:"600"}} className={styles.button}>Try For Free</button></Link> 
+          <Link href='/signup'> <button style={{background: "#000000",borderRadius: "34.5px" , color:"white" , border:"none" , padding:"0.5em 1.5em" , marginRight:"0.5em", position:"relative", bottom:"5em" , fontSize:"22px" , fontWeight:"600",cursor:"pointer"}} className={styles.button}>Try For Free</button></Link> 
           </motion.div>
           </div>
           <motion.div

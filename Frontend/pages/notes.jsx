@@ -930,16 +930,37 @@ export default function Notes() {
         },
     });
 
+    const [isDarkMode, setIsDarkMode] = useState(true);
+    const [color, setColor] = useState('#262727');
+    const [color1, setColor1] = useState('#333838');
+    const [divider, setDivider] = useState('#fff');
+    const [letter, setletter] = useState('white');
+    const Change = () => {
+     
+      setIsDarkMode(!isDarkMode);
+      if(color === '#262727'){
+      setColor('white');
+       setColor1('#f3f3f3')
+       setletter('#5f5f5f')
+       setDivider('#a3a3a3')
+      }else{
+        setColor('#262727')
+        setColor1('#333838')
+        setletter('#fff')
+        setDivider('#fff')
+      }
+    };
+
     return (
         <>
             <ThemeProvider theme={theme}>
 
-                <body style={{ background: "#151515", minHeight: "100vh" }}>
+                <body style={{ background: color, minHeight: "100vh" }}>
                     <Stack marginTop={{ sm: "125px", md: "145px" }} marginLeft={{ sm: "65px", md: "270px" }} justifyContent="center" alignItems="center" flexDirection="column">
-                        <Stack flexDirection="row" backgroundColor="#333838"
+                        <Stack flexDirection="row" backgroundColor={color1}
                             borderRadius="10px" height="60px" justifyContent="space-between" alignItems="center">
                             <Stack justifyContent="space-between" flexDirection="row" width={{ xs: "30vw", md: "23vw", lg: "30vw" }} margin={{ xs: "0 30px", lg: "0 50px" }} alignItems="center">
-                                <Typography sx={{ color: "#fff", fontSize: "20px" }}>Branch</Typography>
+                                <Typography sx={{ color:letter, fontSize: "20px" }}>Branch</Typography>
                                 <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
                                     <Select
                                         labelId="demo-simple-select-label"
@@ -988,7 +1009,7 @@ export default function Notes() {
                             </Stack>
                             <Divider orientation="vertical" flexItem sx={{ borderColor: "#fff" }} />
                             <Stack justifyContent="space-between" flexDirection="row" width={{ xs: "30vw", md: "23vw", lg: "30vw" }} margin="0 50px" alignItems="center">
-                                <Typography sx={{ color: "#fff", fontSize: "20px" }}>Semester</Typography>
+                                <Typography sx={{ color: letter, fontSize: "20px" }}>Semester</Typography>
                                 <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
                                     <Select
                                         labelId="demo-simple-select-label"
@@ -1037,18 +1058,18 @@ export default function Notes() {
                         <Stack sx={{flexDirection:"row",flexWrap:"wrap",gap:"20px",padding:"20px",justifyContent:"space-around"}}>
                         {filteredSubjects.map((subject) => (
 
-                            <Stack sx={{ justifyContent: "center", color: "#ffffff", background: "#333838", borderRadius: "10px", padding: "20px", width: "250px", height: "230px", textAlign: "center", gap: "25px" }}>
-                                <Typography sx={{ fontWeight: "700", fontSize: "25px" }}>{Object.keys(subject)[0]}</Typography>
+                            <Stack sx={{ justifyContent: "center", color: "#ffffff", background: color1 , borderRadius: "10px", padding: "20px", width: "250px", height: "230px", textAlign: "center", gap: "25px" }}>
+                                <Typography sx={{ fontWeight: "700", fontSize: "25px", color:letter }}>{Object.keys(subject)[0]}</Typography>
                                 {/* <Typography>Principles of Analog and Digital Communication</Typography> */}
                                 <Stack sx={{ flexDirection: "row", justifyContent: "space-around" }}>
-                                    <Button sx={{ color: "#EFECEC", borderRadius: "20px", padding: "5px", background: "#1e1e1e", width: "93.33px" }}>Notes</Button>
-                                    <Button sx={{ color: "#EFECEC", borderRadius: "20px", padding: "5px", background: "#1e1e1e", width: "93.33px" }}>Pyqs</Button>
+                                    <Button sx={{ color: letter, borderRadius: "20px", padding: "5px", background: "#1e1e1e", width: "93.33px" }}>Notes</Button>
+                                    <Button sx={{ color: letter, borderRadius: "20px", padding: "5px", background: "#1e1e1e", width: "93.33px" }}>Pyqs</Button>
                                 </Stack>
                             </Stack>
                         ))}
                         </Stack>
                     </Stack>
-                    <Navbar />
+                    <Navbar Change={Change} isDarkMode={isDarkMode}/>
                 </body>
             </ThemeProvider>
         </>

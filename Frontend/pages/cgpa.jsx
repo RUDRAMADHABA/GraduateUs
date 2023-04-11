@@ -933,16 +933,38 @@ export default function Cgpa() {
     },
   });
 
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [color, setColor] = useState('#262727');
+  const [color1, setColor1] = useState('#333838');
+  const [divider, setDivider] = useState('#fff');
+  const [letter, setletter] = useState('white');
+  const Change = () => {
+   
+    setIsDarkMode(!isDarkMode);
+    if(color === '#262727'){
+    setColor('white');
+     setColor1('#f3f3f3')
+     setletter('#5f5f5f')
+     setDivider('#a3a3a3')
+    }else{
+      setColor('#262727')
+      setColor1('#333838')
+      setletter('#fff')
+      setDivider('#fff')
+    }
+  };
+
+
   return (
     <>
       <ThemeProvider theme={theme}>
 
-        <body style={{ background: "#151515", minHeight: "100vh" }}>
+        <body style={{ background:color , minHeight: "100vh" }}>
           <Stack marginTop={{ sm: "125px", md: "145px" }} marginLeft={{ sm: "65px", md: "270px" }} justifyContent="center" alignItems="center" flexDirection="column">
-            <Stack flexDirection="row" backgroundColor="#333838"
+            <Stack flexDirection="row" backgroundColor={color1}
               borderRadius="10px" height="60px" justifyContent="space-between" alignItems="center">
-              <Stack justifyContent="space-between" flexDirection="row" width={{ xs: "30vw", md: "23vw", lg: "30vw" }} margin={{ xs: "0 30px", lg: "0 50px" }} alignItems="center">
-                <Typography sx={{ color: "#fff", fontSize: "20px" }}>Branch</Typography>
+              <Stack justifyContent="space-between" flexDirection="row" width={{ xs: "30vw", md: "23vw", lg: "30vw" }} margin={{ xs: "0 30px", lg: "0 50px" }} alignItems="center"  backgroundColor={color1}>
+                <Typography sx={{ color:letter, fontSize: "20px" }}>Branch</Typography>
                 <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
                   <Select
                     labelId="demo-simple-select-label"
@@ -993,9 +1015,9 @@ export default function Cgpa() {
                 </FormControl>
 
               </Stack>
-              <Divider orientation="vertical" flexItem sx={{ borderColor: "#fff" }} />
+              <Divider orientation="vertical" flexItem sx={{ borderColor: {divider} }} />
               <Stack justifyContent="space-between" flexDirection="row" width={{ xs: "30vw", md: "23vw", lg: "30vw" }} margin="0 50px" alignItems="center">
-                <Typography sx={{ color: "#fff", fontSize: "20px" }}>Semester</Typography>
+                <Typography sx={{ color: letter , fontSize: "20px" }}>Semester</Typography>
                 <FormControl sx={{ m: 1, minWidth: 100 }} size="small">
                   <Select
                     labelId="demo-simple-select-label"
@@ -1029,8 +1051,8 @@ export default function Cgpa() {
                       }
                     }}
                   >
-                    <MenuItem value="P" sx={{ fontWeight: "900", }}>P</MenuItem>
-                    <MenuItem value="C" sx={{ fontWeight: "900", }}>C</MenuItem>
+                    <MenuItem value="P" sx={{ fontWeight: "900", }}>I</MenuItem>
+                    <MenuItem value="C" sx={{ fontWeight: "900", }}>II</MenuItem>
                     <MenuItem value="3" sx={{ fontWeight: "900", }}>III</MenuItem>
                     <MenuItem value="4" sx={{ fontWeight: "900", }}>IV</MenuItem>
                     <MenuItem value="5" sx={{ fontWeight: "900", }}>V</MenuItem>
@@ -1042,7 +1064,7 @@ export default function Cgpa() {
               </Stack>
             </Stack>
             <Stack flexDirection="row" justifyContent="center" alignItems="center" margin="20px 0px">
-              <Typography sx={{ color: "#fff", fontWeight: "600", fontSize: "24px", borderBottom: "1.5px solid", borderBottomColor: "#9E4F4F", paddingBottom: "3px" }}>Theory & Lab</Typography>
+              <Typography sx={{ color: letter , fontWeight: "600", fontSize: "24px", borderBottom: "1.5px solid", borderBottomColor: "#9E4F4F", paddingBottom: "3px" }}>Theory & Lab</Typography>
               {/* <Typography sx={{color:"#fff",fontWeight:"600",fontSize:"24px",borderBottom:"1.5px solid",borderBottomColor:"#9E4F4F",paddingBottom:"3px"}}>Lab</Typography> */}
             </Stack>
 
@@ -1053,23 +1075,23 @@ export default function Cgpa() {
               <Stack flexDirection="column" gap="20px" >
                 {filteredSubjects.map((subject) => (
                   <Stack sx={{
-                    background: "rgba(51, 56, 56, 0.9)",
+                    background: color1,
                     backdropFilter: "blur(2px)",
                     borderRadius: "10px"
                   }} flexDirection="row" padding="20px" alignContent="center" justifyContent="center" gap={{ xs: "40px", lg: "60px" }}>
-                    <Typography sx={{ color: "#fff", minWidth: "100px" }}>{Object.keys(subject)[0]}</Typography>
-                    <Typography sx={{ color: "#fff", }}>Credits</Typography>
-                    <Typography sx={{ color: "#fff" }}>{Object.values(subject)[0]}</Typography>
-                    <label htmlFor="grade-select" style={{ color: "#fff" }}>Grade</label>
+                    <Typography sx={{ color: letter , minWidth: "100px" }}>{Object.keys(subject)[0]}</Typography>
+                    <Typography sx={{ color: letter , }}>Credits</Typography>
+                    <Typography sx={{ color: letter }}>{Object.values(subject)[0]}</Typography>
+                    <label htmlFor="grade-select" style={{ color: letter }}>Grade</label>
                     <select style={{
-                      background: " #1E1E1E",
-                      borderRadius: "20px", color: "#fff", padding: "3px"
+                      background: color ,
+                      borderRadius: "20px", color:letter , padding: "3px"
                     }}
                       value={selectedGrades[Object.keys(subject)[0]]}
                       onChange={(event) => handleGradeChange(event, Object.keys(subject)[0])}
                     >
                       {Object.keys(grades).map((grade) => (
-                        <option style={{ color: "#ffffff" }} key={grade} value={grade}>
+                        <option style={{ color: letter }} key={grade} value={grade}>
                           {grade}
                         </option>
                       ))}
@@ -1092,7 +1114,7 @@ borderRadius: "10px"}} flexDirection="row" padding="20px" alignContent="center" 
                   background: "#1B84FF",
                   boxShadow: "2px 4px 4px rgba(165, 165, 165, 0.2)",
                   borderRadius: "20px", padding: "5px 10px"
-                }} onClick={handleFinalGradeButtonClick}><Typography sx={{ fontWeight: "900", textTransform: "initial", color: "#fff", padding: "3px 10px " }}>Calculate</Typography>
+                }} onClick={handleFinalGradeButtonClick}><Typography sx={{ fontWeight: "900", textTransform: "initial", color: letter, padding: "3px 10px " }}>Calculate</Typography>
                 </Button>
                 {finalgrade &&
                   <Stack sx={{
@@ -1110,7 +1132,7 @@ borderRadius: "10px"}} flexDirection="row" padding="20px" alignContent="center" 
 
           </Stack>
 
-          <Navbar />
+          <Navbar Change={Change} isDarkMode={isDarkMode} />
         </body>
       </ThemeProvider>
     </>

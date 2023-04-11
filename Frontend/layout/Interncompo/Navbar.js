@@ -45,6 +45,9 @@ import MicIcon from '@mui/icons-material/Mic';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 const drawerWidth = 270;
 const theme1 = createTheme({
   palette: {
@@ -125,7 +128,55 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function MiniDrawer() {
+const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+  width: 62,
+  height: 34,
+  padding: 7,
+  '& .MuiSwitch-switchBase': {
+    margin: 1,
+    padding: 0,
+    transform: 'translateX(6px)',
+    '&.Mui-checked': {
+      color: '#fff',
+      transform: 'translateX(22px)',
+      '& .MuiSwitch-thumb:before': {
+        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+          '#fff',
+        )}" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>')`,
+      },
+      '& + .MuiSwitch-track': {
+        opacity: 1,
+        backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+      },
+    },
+  },
+  '& .MuiSwitch-thumb': {
+    backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
+    width: 32,
+    height: 32,
+    '&:before': {
+      content: "''",
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      left: 0,
+      top: 0,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+        '#fff',
+      )}" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>')`,
+    },
+  },
+  '& .MuiSwitch-track': {
+    opacity: 1,
+    backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+    borderRadius: 20 / 2,
+  },
+}));
+
+
+export default function MiniDrawer(props) {
   
   const isDesktop = useMediaQuery('(min-width:900px)')
   const theme = useTheme();
@@ -161,35 +212,57 @@ export default function MiniDrawer() {
 
 const [remove , setRemove] = useState(isDesktop)
 
+
+const [isDarkMode, setIsDarkMode] = useState(true);
+const [color, setColor] = useState('#262727');
+const [color1, setColor1] = useState('#262727');
+const[letter , setLetter] = useState('white');
+const Change = () => {
+ 
+  setIsDarkMode(!isDarkMode);
+  if(color === '#262727'){
+  setColor('white');
+  setLetter('black')
+  setColor1('#E4E5E8')
+  }else{
+    setColor('#262727')
+    setLetter('white')
+    setColor1('#262727')
+  }
+};
+
+
+
+
   return (
     <ThemeProvider theme={theme1}>
-    <Box sx={{ display: 'flex','& .MuiAppBar-root':{background:"#262727" , marginTop:"1.5em" , width:"100%"}}}  >
+    <Box sx={{ display: 'flex','& .MuiAppBar-root':{backgroundColor: color , marginTop:"1.5em" , width:"100%" }}}  >
       <CssBaseline />
       <AppBar position="fixed" open={open} >
         <Toolbar sx={{display:"flex" , justifyContent:"space-between" , alignItems:"center",flexDirection:"row"}}>
 
          
-          <Typography variant="h6" noWrap component="div" sx={{fontSize:{xs:"17px", md:"20px"}}}>
+          <Typography variant="h6" noWrap component="div" sx={{fontSize:{xs:"17px", md:"20px" , color:letter , fontWeight:"900"}}}>
         <Image src={logo} height={25} width={25} style={{position:"relative" , top:"0.2em"}}  /> Graduate Us
           </Typography>
-        <List sx={{display:"flex", alignItems:"center",justifyContent:"space-between",gap:{xs:"10px" , sm:"5px" , md:"55px"} }} >
-        <Link  href='/home'>  <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column"}} className={styles.hover}  >
+        <List sx={{display:"flex", alignItems:"center",justifyContent:"space-between",gap:{xs:"10px" , sm:"5px" , md:"55px"}}} >
+        <Link  href='/home'>  <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column" , color:letter}} className={isDarkMode ? styles.hover : styles.hover2 }  >
              <HomeIcon sx={{width:"1.5em" , height:"1.5em"}} className={styles.icon} />   
           <ListItemText className={styles.list}>Home</ListItemText> 
             </Box> </Link> 
-            <Link href='/cgpa'>    <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column"}} className={styles.hover} >
+            <Link href='/cgpa'>    <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column" , color:letter}} className={isDarkMode ? styles.hover : styles.hover2} >
              <PercentIcon sx={{width:"1.5em" , height:"1.5em"}} className={styles.icon} />   
            <ListItemText className={styles.list}  button component={Link} to="/cgpa">Cgpa</ListItemText> 
             </Box> </Link> 
-            <Link href='/internship'>    <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column"}} className={styles.hover} >
+            <Link href='/internship'>    <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column" , color:letter}} className={isDarkMode ? styles.hover : styles.hover2} >
              <SchoolIcon sx={{width:"1.5em" , height:"1.5em"}} className={styles.icon}/>   
                <ListItemText className={styles.list}  button component={Link} href="/intership">Internship</ListItemText> 
             </Box></Link> 
-            <Link href='/attendance'>    <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column"}} className={styles.hover} >
+            <Link href='/attendance'>    <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column" , color:letter}} className={isDarkMode ? styles.hover : styles.hover2 } >
              <CalendarMonthIcon sx={{width:"1.5em" , height:"1.5em"}} className={styles.icon}/>   
             <ListItemText className={styles.list}  button component={Link} href="/">Attendance</ListItemText>  
             </Box></Link>
-            <Link href='/notes'>   <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column"}} className={styles.hover} >
+            <Link href='/notes'>   <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column" , color:letter}} className={isDarkMode ? styles.hover : styles.hover2 } >
              <AutoStoriesIcon sx={{width:"1.5em" , height:"1.5em"}} className={styles.icon}/>   
              <ListItemText className={styles.list}  button component={Link} href="/">Notes</ListItemText> 
             </Box></Link> 
@@ -217,7 +290,7 @@ const [remove , setRemove] = useState(isDesktop)
         PaperProps={{
           elevation: 0,
           sx: {
-            background:"#262727 !important",
+            backgroundColor: color,
             overflow: 'visible',
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
             mt: 1.5,
@@ -257,7 +330,7 @@ const [remove , setRemove] = useState(isDesktop)
          )}
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open} sx={{'& .MuiDrawer-paper':{marginTop:{ xs:"5em",md:"5.4em"} , background:"#262727"}}}>
+      <Drawer variant="permanent" open={open} sx={{'& .MuiDrawer-paper':{marginTop:{ xs:"5em",md:"5.4em"} , backgroundColor: color1 } }}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose} sx={{display:{sm:"block",md:"none"},color:'white' , position:"relative" , top:"10px"}}  >
             {open === false ?  <NavigateNextIcon/> : <ChevronLeftIcon /> }
@@ -266,17 +339,13 @@ const [remove , setRemove] = useState(isDesktop)
         { remove && (
         <Paper
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:250  , height:30 , bottom:"0.75em" , left:"0.6em", position:"relative" , background:"#a3a3a3"}}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width:250  , height:30 , bottom:"0.75em" , left:"0.6em", position:"relative" , background:" rgba(250, 250, 250, 0.93)"}}
     >
-    <InputBase
-  sx={{ ml: 1, flex: 1, color: "white", "&::placeholder": { color: "#525151", opacity: "1" } }}
-  placeholder="Search"
-  inputProps={{
-    "aria-label": "search",
-    style: { color: "black !important", opacity: "1" },
-    placeholderStyle: { color: "#FF0000" } /* added style for placeholder */
-  }}
-/>
+   <InputBase
+      sx={{ ml: 1, flex: 1, color: 'inherit' }}
+      placeholder="Search"
+      classes={{ input: 'MuiInputBase-input' }}
+    />
       <IconButton type="button" sx={{ p: '10px',color:"#525151" }} aria-label="search">
         <MicIcon/>
       </IconButton>
@@ -285,7 +354,7 @@ const [remove , setRemove] = useState(isDesktop)
          
          )}
         <List>
-          {['Chat Option',<Link href='/alumni' style={{textDecoration:"inherit",color:"#fff"}}>Resume Review</Link>, <Link href='/alumni' style={{textDecoration:"inherit",color:"#fff"}}>Referral Program</Link>,<Link href='/editprofile' style={{textDecoration:"inherit",color:"#fff"}}>Edit Profile</Link> ,<Link href='/Premiumfeature' style={{textDecoration:"inherit",color:"#fff"}}>Subscription Details</Link>, 'FAQs', 'Contact Us'].map((text, index) => (
+          {['Chat Option',<Link href='/alumni' style={{textDecoration:"inherit",color:letter}}>Resume Review</Link>, <Link href='/alumni' style={{textDecoration:"inherit",color:letter}}>Referral Program</Link>,<Link href='/editprofile' style={{textDecoration:"inherit",color:letter}}>Edit Profile</Link> ,<Link href='/Premiumfeature' style={{textDecoration:"inherit",color:letter}}>Subscription Details</Link>, 'FAQs', 'Contact Us'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -302,19 +371,31 @@ const [remove , setRemove] = useState(isDesktop)
                     justifyContent: 'center',
                   }}
                 >
-                  {index === 0 && ( <CommentIcon sx={{color:'white'}} /> )}
-                  <Link href='/alumni'> {index === 1 && ( <DescriptionIcon sx={{color:'white'}} /> )}</Link>
-                  <Link href='/alumni'>{index === 2 && ( <SensorOccupiedIcon sx={{color:'white'}} /> )}</Link>
-                  <Link href='/editprofile'>{index === 3 && ( <AccountBoxIcon sx={{color:'white'}} /> )}</Link>
-                  <Link href='/Premiumfeature'>{index === 4 && ( <SubscriptionsIcon sx={{color:'white'}} /> )}</Link>
-                  {index === 5 && ( <QuizIcon sx={{color:'white'}} /> )}
-                  {index === 6 && ( <ContactMailIcon sx={{color:'white'}} /> )}
+                  {index === 0 && ( <CommentIcon sx={{color:letter}} /> )}
+                  <Link href='/alumni'> {index === 1 && ( <DescriptionIcon sx={{color:letter}} /> )}</Link>
+                  <Link href='/alumni'>{index === 2 && ( <SensorOccupiedIcon sx={{color:letter}} /> )}</Link>
+                  <Link href='/editprofile'>{index === 3 && ( <AccountBoxIcon sx={{color:letter}} /> )}</Link>
+                  <Link href='/Premiumfeature'>{index === 4 && ( <SubscriptionsIcon sx={{color:letter}} /> )}</Link>
+                  {index === 5 && ( <QuizIcon sx={{color:letter}} /> )}
+                  {index === 6 && ( <ContactMailIcon sx={{color:letter}} /> )}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0  , color:"white"}} />
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0  , color:letter}} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
+        <FormGroup sx={{marginLeft:"1em" , display:"flex" , alignItems:"flex-start" , marginTop:"3em"}}>
+  <FormControlLabel
+    control={<MaterialUISwitch sx={{ m: 0 }} defaultChecked={props.isDarkMode} />}
+    label={isDarkMode ? 'Dark Mode' : 'Light Mode'}
+    onClick={() => {
+      Change();
+      props.Change();
+    }}
+    sx={{color:letter}}
+  />
+</FormGroup>
+
         
         <List>
           {['Settings'].map((text, index) => (
@@ -323,7 +404,7 @@ const [remove , setRemove] = useState(isDesktop)
                 sx={{
                   minHeight: 5,
                   position:"relative",
-                  top:"3.5em",
+                  top:"0em",
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -335,9 +416,9 @@ const [remove , setRemove] = useState(isDesktop)
                     justifyContent: 'center',
                   }}
                 >
-                  {index === 0 && ( <SettingsIcon sx={{color:'white'}} /> )}
+                  {index === 0 && ( <SettingsIcon sx={{color:letter}} /> )}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0  , color:"white"}} />
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0  , color:letter}} />
               </ListItemButton>
             </ListItem>
           ))}
@@ -351,7 +432,7 @@ const [remove , setRemove] = useState(isDesktop)
                 sx={{
                   minHeight: 5,
                   position:"relative",
-                  top:"2.7em",
+                  bottom:"1em",
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -363,9 +444,9 @@ const [remove , setRemove] = useState(isDesktop)
                     justifyContent: 'center',
                   }}
                 >
-                  {index === 0 && ( < LogoutIcon sx={{color:'white'}} /> )}
+                  {index === 0 && ( < LogoutIcon sx={{color:letter}} /> )}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0  , color:"white"}} />
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0  , color:letter}} />
               </ListItemButton>
             </ListItem>
           ))}
