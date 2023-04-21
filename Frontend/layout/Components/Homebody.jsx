@@ -4,8 +4,8 @@ import c2 from "/pictures/cimg2.png";
 import ChatIcon from '@mui/icons-material/Chat';
 import Image from "next/image";
 import { Stack } from "@mui/system";
-import  styles from  '/styles/home.module.css'
-const Homebody = () => {
+import  styles from  '/styles/Home.module.css'
+const Homebody = (props) => {
   const cc={
     position:'relative',
     top:'2px',
@@ -27,29 +27,29 @@ const Homebody = () => {
         {/* middle */}
         <div className={styles.homeMiddle}>
 
-          <div className={styles.homeCard}>
+          <div className={styles.homeCard} style={{backgroundColor:props.card}}>
             <div className={styles.imgp}>
               <Image src={c1} height="100%" width="100%"  />
             </div>
             <div className={styles.txtp} style={hest}>
-              <p>Internship<br />Oppurtunities </p>
-              <button className={styles.hCardBtn}>Explore</button>
+              <p style={{color:props.letter}}>Internship<br />Oppurtunities </p>
+              <button className={styles.hCardBtn} style={{background:props.button , color:props.letter1}}>Explore</button>
             </div>
           </div>
 
-          <div className={styles.homeCard}>
+          <div className={styles.homeCard} style={{backgroundColor:props.card}}>
             <div className={styles.imgp}>
               <Image src={c2} height="100%" width="100%" />
             </div>
             <div className={styles.txtp} style={hest}>
-              <p>Nearby<br />Restaurants</p>
-              <button className={styles.hCardBtn}>Explore</button>
+              <p style={{color:props.letter}}>Nearby<br />Restaurants</p>
+              <button className={styles.hCardBtn}  style={{background:props.button, color:props.letter1}}>Explore</button>
             </div>
           </div>
 
           <div className={styles.mDownBtn}>
-            <div className={styles.mBtn}><i class="fa-solid fa-house"></i><ChatIcon size="small" color="#333838"/> College Folks</div>
-            <div className={styles.mBtn}>Go Premium</div>
+            <div className={styles.mBtn}  style={{background:props.button, color:props.letter1}}><i class="fa-solid fa-house"></i><ChatIcon size="small" color="#333838"/> College Folks</div>
+            <div className={styles.mBtn}  style={{background:props.button, color:props.letter1}}>Go Premium</div>
           </div>
 
         </div>
@@ -69,7 +69,7 @@ const Homebody = () => {
           <div className={styles.homeImg}>
             <Image src={rightImage} height="100%" width="100%" />
           </div>
-          <p className={styles.dtxt}>Organize and simplify your tasks.<br />In one visual, smart and<br />collaborative space</p>
+          <p className={styles.dtxt} style={{color:props.letter}}>Organize and simplify your tasks.<br />In one visual, smart and<br />collaborative space</p>
           </div>
 
         </div>
