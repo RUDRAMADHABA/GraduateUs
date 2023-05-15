@@ -9,7 +9,7 @@ import Phone from '/pictures/phone.png';
 import Lamp from "/pictures/lamb.png"
 import AppleIcon from '@mui/icons-material/Apple';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import { Button } from "@mui/material";
+import { Button, Link } from "@mui/material";
 import { motion } from 'framer-motion'
 import styles from '/styles/Home.module.css'
 import "@fontsource/poppins"
@@ -73,10 +73,10 @@ export default function HomeM() {
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 1.5 }}
                             >
-                                <Button sx={{
+                               <Link href='/signup'>  <Button sx={{
                                     border: '2px solid rgba(255, 255, 255, 0.44)',
                                     borderRadius: '38px', fontFamily: 'poppins', textTransform: "initial", color: "#000000", paddingLeft: '40px', paddingRight: '40px', background: '#ffffff', fontSize: { xs: "12px", md: "15px" }, fontWeight: "900", boxShadow: "inset -7px 0px 4px rgba(0, 0, 0, 0.25), inset 6px 2px 4px rgba(0, 0, 0, 0.25)"
-                                }}>Let's Go</Button>
+                                }}>Let's Go</Button></Link>
                             </motion.div>
                         </Box>
 

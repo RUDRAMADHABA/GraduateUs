@@ -1,11 +1,15 @@
-import React from "react";
+import React  from "react";
 import { TextField, Button, Typography, Grid, Toolbar, CssBaseline, Box, Stack, InputLabel, FilledInput, IconButton, } from "@mui/material";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import logo from '/pictures/logo.png';
 import pic from '/pictures/pic.png';
 import Link from 'next/link'
 import Image from 'next/image';
+import { LoadingButton } from "@mui/lab";
+import axios from "axios";
+import { useRouter } from "next/router";
 import "@fontsource/montserrat";
+import AppContext from "../context/AppContext";
 import AppleIcon from '@mui/icons-material/Apple';
 import GoogleIcon from '@mui/icons-material/Google';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -13,35 +17,60 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import { Email, Visibility, VisibilityOff } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Signin = () => {
-	const [showPassword, setShowPassword] = React.useState(false);
-
-	const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-	const handleMouseDownPassword = (event) => {
-		event.preventDefault();
-	};
-
-	const [email, setEmail] = useState("");
-	const [pwd, setPwd] = useState("");
-
-	// const regexExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-	const handleOpen = async () => {
-		if (
-			!email ||
-			!pwd
-		) {
+  const { isAuthenticated, setIsAuthenticated } = React.useContext(AppContext);
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const router = useRouter();
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push("/home");
+    }
+  });
+  const [showPassword, setShowPassword] = React.useState(false);
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleMouseDownPassword = (event) => {
+	  event.preventDefault();
+  };
+	const submit = async (email, pwd) => {
+		if ( !pwd || !email ) {
 			return toast.error("All field must be filled");
 		}
-		// if (!regexExp.test(email)) {
-		// 	return toast.error("Enter valid Email");
-		// }
 		if (pwd.length < 8)
-			toast.error("Credentials didn't match !");
-	}
+		{
+			return toast.error("Credentials didn't match !");
+		}
+	setLoading(true);
+    const { data } = await axios.post(
+      "https://graduate-us.onrender.com/api/user/login",
+      { email: email, password: pwd },
+      {
+        headers: {
+          Accept: "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (await data.success) {
+      toast.success("Login Sucessful");
+
+      localStorage.setItem("token", await data.token);
+      setIsAuthenticated(true);
+      // router.push("/");
+      router.back();
+      setPwd("");
+      setEmail("");
+    } 
+	else {
+      toast.error("Credentials didn't match !");
+    }
+    setLoading(false);
+};
+ 
 
 	return (
 		<>
@@ -81,7 +110,7 @@ const Signin = () => {
 								marginBottom: "10px",
 							}} gutterBottom >Sign In</Typography><br />
 
-							<Stack justifyContent={"center"} paddingLeft={"80px"} gap={"15px"}>
+							<Stack justifyContent={"center"} paddingLeft={"80px"} gap={"15px"} sx={{width:"80vw"}}>
 								<Stack justifyContent={"space-evenly"} flexDirection={"row"} sx={{ background: '#ffffff', color: "#000", maxWidth: "400px", borderRadius: "10px", padding: "10px" }}>
 									<AppleIcon />
 									<Typography>Sign in with Apple</Typography>
@@ -90,14 +119,14 @@ const Signin = () => {
 									<GoogleIcon sx={{ color: "#ea4335" }} />
 									<Typography>Sign in with Google</Typography>
 								</Stack>
-								<Stack justifyContent={"space-evenly"} flexDirection={"row"} sx={{ background: '#ffffff', color: "#000", maxWidth: "400px", borderRadius: "10px", padding: "10px" }}>
+								{/* <Stack justifyContent={"space-evenly"} flexDirection={"row"} sx={{ background: '#ffffff', color: "#000", maxWidth: "400px", borderRadius: "10px", padding: "10px" }}>
 									<TwitterIcon sx={{ color: "#1E8EEE" }} />
 									<Typography>Sign in with Twitter</Typography>
 								</Stack>
 								<Stack justifyContent={"space-evenly"} flexDirection={"row"} sx={{ background: '#ffffff', color: "#000", maxWidth: "400px", borderRadius: "10px", padding: "10px" }}>
 									<FacebookRoundedIcon sx={{ color: "#1877F2" }} />
 									<Typography>Sign in with Facebook</Typography>
-								</Stack>
+								</Stack> */}
 								<Typography sx={{ textAlign: "center", maxWidth: "400px", fontSize: "20px" }}>Or</Typography>
 							</Stack>
 
@@ -182,7 +211,9 @@ const Signin = () => {
 								opacity: "0.65"
 							}} gutterBottom>forgot password?</Typography>
 							<br />
-							<Button onClick={handleOpen} variant="contained" sx={{
+							<LoadingButton
+            loading={loading} onClick={() => submit(email, pwd)} variant="contained" sx={{
+								
 								textDecoration: "none",
 								color: "#000",
 								backgroundColor: '#fff',
@@ -196,8 +227,14 @@ const Signin = () => {
 								"&:hover": {
 									fontFamily: "montserrat",
 									background: "#bfbfbf"
-								}
-							}}><ArrowRightAltIcon fontSize="40px" /> </Button><br />
+								},
+								"&:active": {
+									background: "#bfbfbf"
+								},
+								'& .MuiCircularProgress-root': {
+									color: "#fff"
+								  }
+							}}><ArrowRightAltIcon fontSize="40px" /> </LoadingButton><br />
 							<Link href="signup"><Typography sx={{
 								position: "relative",
 								fontWeight: '500',

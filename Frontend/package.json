@@ -14,8 +14,10 @@
     "@fontsource/montserrat": "^4.5.14",
     "@fontsource/poppins": "^4.5.10",
     "@mui/icons-material": "^5.11.0",
+    "@mui/lab": "^5.0.0-alpha.129",
     "@mui/material": "^5.11.7",
     "@mui/styled-engine-sc": "^5.11.0",
+    "axios": "^1.4.0",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.4",
     "framer-motion": "^10.2.3",
@@ -23,6 +25,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hydration-provider": "^1.0.2",
+    "recharts": "^2.6.2",
     "react-toastify": "^9.0.3"
   }
 }

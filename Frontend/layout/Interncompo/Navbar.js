@@ -258,7 +258,7 @@ const Change = () => {
              <SchoolIcon sx={{width:"1.5em" , height:"1.5em"}} className={styles.icon}/>   
                <ListItemText className={styles.list}  button component={Link} href="/intership">Internship</ListItemText> 
             </Box></Link> 
-            <Link href='/attendance'>    <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column" , color:letter}} className={isDarkMode ? styles.hover : styles.hover2 } >
+            <Link href='/Attendance'>    <Box sx={{alignItems:"center" ,  display:"flex" , flexDirection:"column" , color:letter}} className={isDarkMode ? styles.hover : styles.hover2 } >
              <CalendarMonthIcon sx={{width:"1.5em" , height:"1.5em"}} className={styles.icon}/>   
             <ListItemText className={styles.list}  button component={Link} href="/">Attendance</ListItemText>  
             </Box></Link>
