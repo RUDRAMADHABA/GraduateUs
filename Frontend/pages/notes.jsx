@@ -1058,7 +1058,7 @@ export default function Notes() {
                         <Stack sx={{flexDirection:"row",flexWrap:"wrap",gap:"20px",padding:"20px",justifyContent:"space-around"}}>
                         {filteredSubjects.map((subject) => (
 
-                            <Stack sx={{ justifyContent: "center", color: "#ffffff", background: color1 , borderRadius: "10px", padding: "20px", width: "250px", height: "230px", textAlign: "center", gap: "25px" }}>
+                            <Stack key={subject} sx={{ justifyContent: "center", color: "#ffffff", background: color1 , borderRadius: "10px", padding: "20px", width: "250px", height: "230px", textAlign: "center", gap: "25px" }}>
                                 <Typography sx={{ fontWeight: "700", fontSize: "25px", color:letter }}>{Object.keys(subject)[0]}</Typography>
                                 {/* <Typography>Principles of Analog and Digital Communication</Typography> */}
                                 <Stack sx={{ flexDirection: "row", justifyContent: "space-around" }}>

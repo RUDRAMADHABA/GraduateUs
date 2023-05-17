@@ -1074,7 +1074,7 @@ export default function Cgpa() {
 
               <Stack flexDirection="column" gap="20px" >
                 {filteredSubjects.map((subject) => (
-                  <Stack sx={{
+                  <Stack key={subject} sx={{
                     background: color1,
                     backdropFilter: "blur(2px)",
                     borderRadius: "10px"

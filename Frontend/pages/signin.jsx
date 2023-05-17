@@ -45,7 +45,7 @@ const Signin = () => {
 		}
 	setLoading(true);
     const { data } = await axios.post(
-      "https://graduate-us.onrender.com/api/user/login",
+      "https://graduate-us-backend.onrender.com/user/login/",
       { email: email, password: pwd },
       {
         headers: {
@@ -60,7 +60,7 @@ const Signin = () => {
 
       localStorage.setItem("token", await data.token);
       setIsAuthenticated(true);
-      // router.push("/");
+      router.push("/");
       router.back();
       setPwd("");
       setEmail("");
@@ -212,7 +212,8 @@ const Signin = () => {
 							}} gutterBottom>forgot password?</Typography>
 							<br />
 							<LoadingButton
-            loading={loading} onClick={() => submit(email, pwd)} variant="contained" sx={{
+            // loading={loading} 
+			onClick={() => submit(email, pwd)} variant="contained" sx={{
 								
 								textDecoration: "none",
 								color: "#000",

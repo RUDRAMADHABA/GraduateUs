@@ -5,6 +5,7 @@ import Checkbox from '@mui/material/Checkbox';
 import logo from '/pictures/logo.png';
 import pic2 from '/pictures/pic2.png';
 import Link from 'next/link'
+import axios from "axios";
 import Image from 'next/image';
 import "@fontsource/Montserrat";
 import { Email, Visibility, VisibilityOff } from "@mui/icons-material";
@@ -53,11 +54,46 @@ const Signup = () => {
 		if (agree == false) {
 			return toast.error("Accept the terms and condition to proceed");
 		}
+		
+		const { data } = await axios.post(
+			"http://localhost:5000/user/register/",
+			{
+				username: fname,
+				email: email,
+				password: pwd,
+			},
+			{
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json",
+					"Access-Control-Allow-Origin": "*",
+					
+				},
+			}
+		);
 
-	}
+		if (data.success) {
+			toast.success("Registration Successfull");
+			// window.location.reload()
+			setFname("");
+			setEmail("");
+			setPwd("");
+			setCpwd("");
 
-	return (
-		<body style={{background:"#151515", minHeight:"100vh"}}>
+			localStorage.setItem("token", data.token);
+			// setIsAuthenticated(true);
+			// // console.log("routeer");
+			// router.back();
+			// if (next) {
+			// }
+		} else {
+			toast.error(await data.message);
+		}
+	};
+	// setVerifyLoad(false);
+
+return (
+	<body style={{ background: "#151515", minHeight: "100vh" }}>
 		<Grid sx={{
 			backgroundColor: '#151515',
 			fontFamily: 'Montserrat',
@@ -161,21 +197,21 @@ const Signup = () => {
 							left: 32,
 							opacity: 0.79
 						}}>Password</InputLabel>
-						<FilledInput 
-						inputProps={{style:{padding:"0px 14px"}}}
-						sx={{
-							borderRadius: '6px',
-							border: 'solid 1px #fff', color: '#fff', width: {
-								position: "relative",
-								xs: 280,
-								sm: 400,
-								md: 480
-							},
-							left: 32,
-							top: 10,
-							right: 32,
-							height: '45px'
-						}}
+						<FilledInput
+							inputProps={{ style: { padding: "0px 14px" } }}
+							sx={{
+								borderRadius: '6px',
+								border: 'solid 1px #fff', color: '#fff', width: {
+									position: "relative",
+									xs: 280,
+									sm: 400,
+									md: 480
+								},
+								left: 32,
+								top: 10,
+								right: 32,
+								height: '45px'
+							}}
 							id="filled-adornment-password"
 							value={pwd}
 							onChange={(e) => {
@@ -203,22 +239,22 @@ const Signup = () => {
 							top: 20,
 							opacity: 0.79,
 						}}>Current Password</InputLabel>
-						<FilledInput 
-						inputProps={{style:{padding:"0px 14px"}}}
-						sx={{
-							borderRadius: '6px',
-						
-							border: 'solid 1px #fff', color: '#fff', width: {
-								position: "relative",
-								xs: 280,
-								sm: 400,
-								md: 480
-							},
-							left: 32,
-							top: 30,
-							right: 32,
-							height: '45px'
-						}}
+						<FilledInput
+							inputProps={{ style: { padding: "0px 14px" } }}
+							sx={{
+								borderRadius: '6px',
+
+								border: 'solid 1px #fff', color: '#fff', width: {
+									position: "relative",
+									xs: 280,
+									sm: 400,
+									md: 480
+								},
+								left: 32,
+								top: 30,
+								right: 32,
+								height: '45px'
+							}}
 							id="filled-adornment-password"
 							value={cpwd}
 							onChange={(e) => {
@@ -242,11 +278,11 @@ const Signup = () => {
 
 						<Toolbar sx={{ position: 'relative', marginTop: '20px' }}>
 							<Checkbox sx={{ color: '#bfbfbf' }}
-							checked={agree}
-							inputProps={{ 'aria-label': 'controlled checkbox' }}
-							onChange={(e) => {
-								setAgree(e.target.checked);
-							}}/><Typography sx={{ fontSize: '12px', opacity: '0.65' }}>I have read all and agree with all the Terms and conditions and Privacy policy</Typography></Toolbar><br />
+								checked={agree}
+								inputProps={{ 'aria-label': 'controlled checkbox' }}
+								onChange={(e) => {
+									setAgree(e.target.checked);
+								}} /><Typography sx={{ fontSize: '12px', opacity: '0.65' }}>I have read all and agree with all the Terms and conditions and Privacy policy</Typography></Toolbar><br />
 
 						<Button
 							onClick={handleOpen}
@@ -268,7 +304,7 @@ const Signup = () => {
 								}
 							}}><ArrowRightAltIcon fontSize="40px" /> </Button><br />
 						<Link href="signin"><Typography sx={{
-							paddingBottom:"20px",
+							paddingBottom: "20px",
 							position: "relative",
 							fontWeight: '500',
 							fontSize: '15px',
@@ -295,9 +331,9 @@ const Signup = () => {
 			</Grid>
 			<ToastContainer />
 		</Grid>
-		</body>
+	</body>
 
-	);
+);
 }
 
 export default Signup;

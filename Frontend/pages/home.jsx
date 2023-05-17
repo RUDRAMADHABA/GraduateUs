@@ -1,7 +1,7 @@
 import Homebody from "../layout/Components/Homebody";
 import Navbar from "../layout/Interncompo/Navbar";
 import { useState } from "react";
-const home = () => {
+const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
 
@@ -41,4 +41,4 @@ const home = () => {
     );
 }
  
-export default home ;
+export default Home ;
