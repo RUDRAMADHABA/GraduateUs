@@ -45,3 +45,8 @@ body{
   .slider::-webkit-scrollbar{
 	width: 0.3em;
   } */
+
+  
+  .my-textfield .MuiOutlinedInput-notchedOutline {
+    border-color: #E3685B;
+  }

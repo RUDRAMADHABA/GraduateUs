@@ -4,7 +4,8 @@ import c2 from "/pictures/cimg2.png";
 import ChatIcon from '@mui/icons-material/Chat';
 import Image from "next/image";
 import { Stack } from "@mui/system";
-import  styles from  '/styles/Home.module.css'
+import  styles from  '/styles/Home.module.css';
+
 const Homebody = (props) => {
   const cc={
     position:'relative',

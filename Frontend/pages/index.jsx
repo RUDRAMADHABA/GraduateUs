@@ -7,12 +7,12 @@ import HomeM from "../layout/home"
 export default function Home() {
   return (
     <div>
-    <Navbar/>
-    <HomeM/>
-    <Intern/>
+    <Navbar /> 
+     <HomeM />
+    <Intern />
     <Notes/>
     <Cgpa/>
-    <Premium/>
+    <Premium/> 
     </div>
   )
 }

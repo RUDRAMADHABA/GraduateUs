@@ -93,11 +93,29 @@ export default function EditProfile() {
         setAnchorEl(event.currentTarget);
     };
 
+    const [isDarkMode, setIsDarkMode] = useState(true);
+    const [color, setColor] = useState('#262727');
+    const [letter, setletter] = useState('#fff');
+    const [divider, setDivider] = useState('#fff');
+    const Change = () => {
+   
+        setIsDarkMode(!isDarkMode);
+        if(color === '#262727'){
+        setColor('white');
+         setletter('#000')
+         setDivider('#1e1e1e')
+        }else{
+          setColor('#262727')
+          setletter('#fff')
+          setDivider('#fff')
+        }
+      };
+
     return (
         <>
             <ThemeProvider theme={theme}>
 
-                <body style={{ background: "#151515", minHeight: "100vh", color: "#fff" }}>
+                <body style={{ background: color, minHeight: "100vh", color: "#fff" }}>
                     <Stack marginTop={{ sm: "125px", md: "145px" }} marginLeft={{ sm: "65px", md: "270px" }} marginBottom={"30px"}>
                         <Stack flexDirection={"row"} justifyContent={"space-between"} sx={{ background: "#333838" }} padding={"30px"} marginBottom={"30px"} position={"relative"} top={"-32px"} borderRadius={"0 0 25px 25px"}>
                             <Typography>Edit Profile</Typography>
@@ -108,7 +126,7 @@ export default function EditProfile() {
                                 <Typography sx={{
                                     fontWeight: '600',
                                     fontSize: '18px',
-                                    opacity: 0.79,
+                                    opacity: 0.79,color:letter
                                 }}>First Name</Typography><br />
                                 <TextField size="small"
                                     value={fname}
@@ -117,7 +135,7 @@ export default function EditProfile() {
                                     }}
                                     sx={{
                                         '& input': {
-                                            color: "#fff"
+                                            color: letter
                                         },
                                         width: {
                                             position: "relative",
@@ -133,7 +151,7 @@ export default function EditProfile() {
                                 <Typography sx={{
                                     fontWeight: '600',
                                     fontSize: '18px',
-                                    opacity: 0.79,
+                                    opacity: 0.79,color:letter
                                 }}>Last Name</Typography><br />
                                 <TextField
                                     value={lname}
@@ -142,7 +160,7 @@ export default function EditProfile() {
                                     }}
                                     size="small" sx={{
                                         '& input': {
-                                            color: "#fff"
+                                            color: letter
                                         },
                                         width: {
                                             position: "relative",
@@ -157,7 +175,7 @@ export default function EditProfile() {
                                 <Typography sx={{
                                     fontWeight: '600',
                                     fontSize: '18px',
-                                    opacity: 0.79,
+                                    opacity: 0.79,color:letter
                                 }}>Phone Number</Typography><br />
                                 <TextField
                                     value={phone}
@@ -166,7 +184,7 @@ export default function EditProfile() {
                                     }}
                                     size="small" InputProps={{ inputProps: { pattern: "[0-9]*", } }} sx={{
                                         '& input': {
-                                            color: "#fff"
+                                            color: letter
                                         }, '::selection': {
                                             backgroundColor: "transparent"
                                         },
@@ -183,7 +201,7 @@ export default function EditProfile() {
                                 <Typography sx={{
                                     fontWeight: '600',
                                     fontSize: '18px',
-                                    opacity: 0.79,
+                                    opacity: 0.79,color:letter
                                 }}>Email Id</Typography><br />
                                 <TextField
                                     value={email}
@@ -192,7 +210,7 @@ export default function EditProfile() {
                                     }}
                                     type={Email} size="small" sx={{
                                         '& input': {
-                                            color: "#fff"
+                                            color: letter
                                         },
                                         width: {
                                             position: "relative",
@@ -207,7 +225,7 @@ export default function EditProfile() {
                                 <Typography sx={{
                                     fontWeight: '600',
                                     fontSize: '18px',
-                                    opacity: 0.79,
+                                    opacity: 0.79,color:letter
                                 }}>Address</Typography><br />
                                 <TextField
                                     value={address}
@@ -216,7 +234,7 @@ export default function EditProfile() {
                                     }}
                                     size="small" sx={{
                                         '& input': {
-                                            color: "#fff"
+                                            color: letter
                                         },
                                         width: {
                                             position: "relative",
@@ -231,7 +249,7 @@ export default function EditProfile() {
                                 <Typography sx={{
                                     fontWeight: '600',
                                     fontSize: '18px',
-                                    opacity: 0.79,
+                                    opacity: 0.79,color:letter
                                 }}>LinkedIn Account</Typography><br />
                                 <TextField
                                     value={li}
@@ -240,7 +258,7 @@ export default function EditProfile() {
                                     }}
                                     size="small" sx={{
                                         '& input': {
-                                            color: "#fff"
+                                            color: letter
                                         },
                                         width: {
                                             position: "relative",
@@ -254,7 +272,7 @@ export default function EditProfile() {
 
                             </Stack>
                             <Stack >
-                                <Tooltip title="Profile Image">
+                                <Tooltip title="Profile Image" >
                                     <IconButton
                                         onClick={handleClick}
                                         size="large"
@@ -277,13 +295,13 @@ export default function EditProfile() {
                                 </Tooltip>
 
                                 <Stack gap={"20px"} border={"2px solid #434141"} padding={"20px"} borderRadius={"20px"} marginBottom={"30px"}>
-                                    <InputLabel htmlFor="filled-adornment-password" sx={{ color: "#fff" }}>Current Password</InputLabel>
+                                    <InputLabel htmlFor="filled-adornment-password" sx={{ color: letter }}>Current Password</InputLabel>
                                     <FilledInput 
                                     inputProps={{style:{padding:"0px 14px"}}}
                                     sx={{
                                         borderRadius: '10px',
                                         
-                                        border: 'solid 1px #fff', color: '#fff', width: {
+                                        border: 'solid 1px #fff', color: letter, width: {
                                             position: "relative",
                                             xs: 280,
                                             sm: 400,
@@ -304,18 +322,18 @@ export default function EditProfile() {
                                                 onClick={handleClickShowPassword}
                                                 onMouseDown={handleMouseDownPassword}
                                                 edge="end"
-                                                sx={{ color: "#fff" }}
+                                                sx={{ color: letter }}
                                             >
                                                 {showPassword ? <Visibility /> : <VisibilityOff />}
                                             </IconButton>
                                         }
                                     />
-                                    <InputLabel htmlFor="filled-adornment-password" sx={{ color: "#fff" }}>New Password</InputLabel>
+                                    <InputLabel htmlFor="filled-adornment-password" sx={{ color: letter }}>New Password</InputLabel>
                                     <FilledInput 
                                     inputProps={{style:{padding:"0px 14px"}}}
                                     sx={{
                                         borderRadius: '10px',
-                                        border: 'solid 1px #fff', color: '#fff', width: {
+                                        border: 'solid 1px #fff', color: letter, width: {
                                             position: "relative",
                                             xs: 280,
                                             sm: 400,
@@ -336,18 +354,18 @@ export default function EditProfile() {
                                                 onClick={handleClickShowPassword1}
                                                 onMouseDown={handleMouseDownPassword}
                                                 edge="end"
-                                                sx={{ color: "#fff" }}
+                                                sx={{ color: letter }}
                                             >
                                                 {showPassword1 ? <Visibility /> : <VisibilityOff />}
                                             </IconButton>
                                         }
                                     />
-                                    <InputLabel htmlFor="filled-adornment-password" sx={{ color: "#fff" }}>Confirm Password</InputLabel>
+                                    <InputLabel htmlFor="filled-adornment-password" sx={{ color: letter }}>Confirm Password</InputLabel>
                                     <FilledInput 
                                     inputProps={{style:{padding:"0px 14px"}}}
                                     sx={{
                                         borderRadius: '10px',
-                                        border: 'solid 1px #fff', color: '#fff', width: {
+                                        border: 'solid 1px #fff', color: letter, width: {
                                             position: "relative",
                                             xs: 280,
                                             sm: 400,
@@ -368,7 +386,7 @@ export default function EditProfile() {
                                                 onClick={handleClickShowPassword2}
                                                 onMouseDown={handleMouseDownPassword}
                                                 edge="end"
-                                                sx={{ color: "#fff" }}
+                                                sx={{ color: letter }}
                                             >
                                                 {showPassword2 ? <Visibility /> : <VisibilityOff />}
                                             </IconButton>
@@ -380,8 +398,8 @@ export default function EditProfile() {
                                     <Button
                                         onClick={handleOpen}
                                         sx={{
-                                            borderRadius: "15px", background: "#fff", minWidth: "120px", "&:hover": {
-                                                color: "#fff",
+                                            borderRadius: "15px", background:letter, color: color ,minWidth: "120px", "&:hover": {
+                                                color: letter,
                                                 border: "2px solid #434141"
                                             }
                                         }}>Submit</Button>
@@ -391,7 +409,7 @@ export default function EditProfile() {
                         </Stack>
                     </Stack>
                     <ToastContainer />
-                    <Navbar />
+                    <Navbar Change={Change} isDarkMode={isDarkMode} />
                 </body>
             </ThemeProvider>
         </>

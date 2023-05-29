@@ -58,7 +58,7 @@ const Signup = () => {
 		const { data } = await axios.post(
 			"http://localhost:5000/user/register/",
 			{
-				username: fname,
+				name: fname,
 				email: email,
 				password: pwd,
 			},
@@ -71,8 +71,9 @@ const Signup = () => {
 				},
 			}
 		);
+		console.log(data);
 
-		if (data.success) {
+		if (data.flag) {
 			toast.success("Registration Successfull");
 			// window.location.reload()
 			setFname("");

@@ -73,7 +73,7 @@ const Premium = () => {
                    animate={{ opacity:1}}
                    transition={{duration:1.5 , delay:0.5}}
                   >
-                <Image src={Premiumimage} width={500} height={500} style={{marginTop:"10em"}} className={styles.image} />
+                <Image src={Premiumimage} width={500} height={500} style={{marginTop:"8em"}} className={styles.image} />
                 </motion.div>
               </div>
              )}
