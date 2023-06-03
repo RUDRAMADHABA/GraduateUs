@@ -4,8 +4,7 @@
 
 ## <p > Video Preview </p>
 
-https://github.com/Graduate-Us/Web-Version/assets/99486732/6c7af91c-5094-4c60-b91c-aef80e303e6c
-
+https://github.com/RUDRAMADHABA/GraduateUs/blob/main/assets/Video.mp4
 
 https://github.com/RUDRAMADHABA/GraduateUs/blob/main/assets/PremiumVideo.mp4
 
