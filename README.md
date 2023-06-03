@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Graduate-Us/Web-Version/assets/99486732/00cbc545-8794-43a6-a881-8ee04d7ebe43" alt="Logo">
+  <img src="https://github.com/Graduate-Us/assets/99486732/00cbc545-8794-43a6-a881-8ee04d7ebe43" alt="Logo">
 </p><h1 align="center"> Graduate Us</h1> 
 
 ## <p > Video Preview </p>
