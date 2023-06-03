@@ -4,9 +4,9 @@
 
 ## <p > Video Preview </p>
 
-https://github.com/RUDRAMADHABA/GraduateUs/blob/main/assets/Video.mp4
+https://github.com/RUDRAMADHABA/GraduateUs/assets/Video.mp4
 
-https://github.com/RUDRAMADHABA/GraduateUs/blob/main/assets/PremiumVideo.mp4
+https://github.com/RUDRAMADHABA/GraduateUs/assets/PremiumVideo.mp4
 
 
 <video controls>
