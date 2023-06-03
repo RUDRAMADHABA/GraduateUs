@@ -59,4 +59,3 @@ Join our vibrant community and stay connected with other ambitious individuals. 
 - Instagram: [@graduate.us](https://instagram.com/graduate.us?igshid=MzRlODBiNWFlZA==)
 
 Get ready to embark on an exciting journey toward a successful career! 💼✨
-
