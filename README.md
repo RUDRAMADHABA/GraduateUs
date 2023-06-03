@@ -7,8 +7,7 @@
 https://github.com/Graduate-Us/Web-Version/assets/99486732/6c7af91c-5094-4c60-b91c-aef80e303e6c
 
 
-
-https://github.com/Graduate-Us/Web-Version/assets/99486732/1895eae5-ddea-49ae-860b-30e23f66b7a0
+https://github.com/RUDRAMADHABA/GraduateUs/blob/main/assets/PremiumVideo.mp4
 
 
 <video controls>
