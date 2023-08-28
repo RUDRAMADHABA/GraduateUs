@@ -18,7 +18,7 @@ const Alumnibody = (props) => {
    const MNC= [
     {id:1, image:'/restaurant.png', name:"Rohit Kumar", designation:"Associate | Salesforce PwC"},
     {id:2, image:'/restaurant.png', name:"Ananya", designation:"Associate | Salesforce PwC"},
-    {id:3, image:'/restaurant.png', name:"Faizan Akaram", designation:"Associate | Salesforce PwC"},
+    {id:3, image:'/restaurant.png', name:"Faizan Akram", designation:"Associate | Salesforce PwC"},
     {id:4, image:'/restaurant.png', name:"Sagar", designation:"Associate | Salesforce PwC"},
     {id:5, image:'/restaurant.png', name:"Amiya Boxi", designation:"Associate | Salesforce PwC"},
   ]
@@ -55,7 +55,7 @@ const theme = createTheme({
     },
     typography: {
       allVariants: {
-        fontFamily: 'Poppins',
+        fontFamily: 'Montserrat',
       }
   },
 });

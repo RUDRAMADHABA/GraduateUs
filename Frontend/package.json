@@ -17,15 +17,28 @@
     "@mui/lab": "^5.0.0-alpha.129",
     "@mui/material": "^5.11.7",
     "@mui/styled-engine-sc": "^5.11.0",
+    "@mui/styles": "^5.13.2",
     "axios": "^1.4.0",
+    "cloudinary": "^1.37.3",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.4",
+    "firebase": "^10.1.0",
     "framer-motion": "^10.2.3",
+    "lottie-react-web": "^2.2.2",
     "next": "13.1.4",
+    "next-auth": "^4.22.1",
     "react": "18.2.0",
+    "react-calendar": "^4.4.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "18.2.0",
     "react-hydration-provider": "^1.0.2",
+    "react-loader-spinner": "^5.3.4",
+    "react-toastify": "^9.0.3",
     "recharts": "^2.6.2",
-    "react-toastify": "^9.0.3"
+    "socket.io-client": "^4.7.1"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   }
 }

@@ -1,88 +1,88 @@
-import "@fontsource/poppins"
+import "@fontsource/Montserrat"
 
-const poppins = poppins({
+const Montserrat = Montserrat({
 	weight: ['400', '500']
 })
 
 const typographyOptions = {
-	fontFamily: 'poppins',
+	fontFamily: 'Montserrat',
 	'displayLarge': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '57px',
 		lineHeight: '64px'
 	},
 	'displayMedium': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '45px',
 		lineHeight: '52px'
 	},
 	'displaySmall': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '36px',
 		lineHeight: '44px'
 	},
 	'headlineLarge': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '32px',
 		lineHeight: '40px'
 	},
 	'headlineMedium': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '28px',
 		lineHeight: '36px'
 	},
 	'headlineSmall': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '24px',
 		lineHeight: '32px'
 	},
 	'titleLarge': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '22px',
 		lineHeight: '28px'
 	},
 	'titleMedium': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '16px',
 		lineHeight: '24px',
 		fontWeight: 500
 	},
 	'titleSmall': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '14px',
 		lineHeight: '20px',
 		fontWeight: 500
 	},
 	'labelLarge': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '14px',
 		lineHeight: '20px',
 		fontWeight: 500
 	},
 	'labelMedium': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '12px',
 		lineHeight: '16px',
 		fontWeight: 500
 	},
 	'labelSmall': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '11px',
 		lineHeight: '16px',
 		fontWeight: 500
 	},
 	'bodyLarge': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '16px',
 		lineHeight: '24px',
 	},
 	'bodyMedium': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '14px',
 		lineHeight: '20px',
 	},
 	'bodySmall': {
-		fontFamily: 'poppins',
+		fontFamily: 'Montserrat',
 		fontSize: '12px',
 		lineHeight: '16px',
 	}

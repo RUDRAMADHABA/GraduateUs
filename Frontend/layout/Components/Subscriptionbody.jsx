@@ -1,6 +1,5 @@
 import { Button, Typography } from '@mui/material';
-import { padding, Stack } from '@mui/system';
-import Image from 'next/image';
+import { Stack } from '@mui/system';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import StarIcon from '@mui/icons-material/Star';
@@ -15,7 +14,7 @@ const PremiumFeature = (props) => {
         },
         typography: {
             allVariants: {
-                fontFamily: 'Poppins',
+                fontFamily: 'Montserrat',
             }
         },
     });

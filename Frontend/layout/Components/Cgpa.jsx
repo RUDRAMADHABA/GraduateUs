@@ -37,7 +37,7 @@ const Cgpa = () => {
             animate={{y:0}}
             transition={{duration:1, type:"spring" , stiffness:"300" , damping:10 , delay:0.2}}
             >
-           <Image src={Lamp1} width={500} height={456} style={{position:"relative" , bottom:"0.8em"}} className={styles.lamp}  />
+           <Image src={Lamp1} width={500} height={456} style={{position:"relative" , bottom:"0.8em"}} className={styles.lamp} alt='image' />
             </motion.div>
             <motion.div
              initial={{ opacity:0}}
@@ -66,7 +66,7 @@ const Cgpa = () => {
              animate={{ opacity:1}}
              transition={{duration:1.5 , delay:0.5}}
             >
-          <Image src={Cgpaimage} width={500} height={500} style={{marginTop:"10em"}}  className={styles.image} />
+          <Image src={Cgpaimage} width={500} height={500} style={{marginTop:"10em"}}  className={styles.image} alt='image'/>
           </motion.div>
         </div>
        )}

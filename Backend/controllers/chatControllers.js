@@ -125,6 +125,19 @@ const renameGroup = asyncHandler(async (req, res) => {
 
 const addToGroup = asyncHandler(async (req, res) => {
   const { chatId, userId } = req.body;
+  console.log(chatId, userId);
+  const chat = await Chat.findById(chatId);
+  if (!chat) {
+    res.status(404);
+    throw new Error("Chat Not Found");
+  }
+  const userExists = chat.users.some((existingUserId) =>
+    existingUserId.equals(userId)
+  );
+
+  if (userExists) {
+    return res.json(chat);
+  }
   const added = await Chat.findByIdAndUpdate(
     chatId,
     {

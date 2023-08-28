@@ -38,7 +38,7 @@ const Intern = () => {
                 animate={{ y: 0 }}
                 transition={{ duration: 1, type: "spring", stiffness: "300", damping: 10, delay: 0.2 }}
               >
-                <Image src={Lamp1} width={500} height={456} style={{ position: "relative", bottom: "0.8em" }} className={styles.lamp} />
+                <Image alt='image' src={Lamp1} width={500} height={456} style={{ position: "relative", bottom: "0.8em" }} className={styles.lamp} />
               </motion.div>
               <motion.div
                 initial={{ opacity: 0 }}
@@ -52,7 +52,7 @@ const Intern = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
               >
-                <h3 style={{ textAlign: "center", position: "relative", bottom: "6.9em", color: "rgba(0, 0, 0, 0.63)", fontSize: "23px" }} className={styles.h3}  >Never miss an internship opportunity <br /> Stay updated and grab <br /> your chance.</h3>
+                <h3 style={{ textAlign: "center", position: "relative", bottom: "6.9em", color: "rgba(0, 0, 0, 0.63)", fontSize: "23px", padding:"0 10px" }} className={styles.h3}  >Never miss an internship opportunity <br /> Stay updated and grab <br /> your chance.</h3>
               </motion.div>
               <motion.div
                 initial={{ y: 1000, opacity: 0 }}
@@ -68,7 +68,7 @@ const Intern = () => {
               transition={{ duration: 1.5, delay: 0.5 }}
             >
               <div style={{paddingBottom:"50px"}}>
-                <Image src={internimage} width={500} height={500} style={{ marginTop: "6.5em" }} className={styles.image} />
+                <Image alt='image' src={internimage} width={500} height={500} style={{ marginTop: "6.5em" }} className={styles.image} />
               </div>
             </motion.div>
           </div>

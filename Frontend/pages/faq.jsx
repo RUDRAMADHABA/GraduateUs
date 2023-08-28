@@ -9,7 +9,7 @@ import FaqQues from "../layout/faq_ques";
 import { ListItem } from "@mui/material";
 import { ListItemIcon } from "@mui/material";
 
-export default function faq() {
+export default function Faq() {
 
   const theme = createTheme({
     palette: {
@@ -19,7 +19,7 @@ export default function faq() {
     },
     typography: {
       allVariants: {
-        fontFamily: 'Poppins',
+        fontFamily: 'Montserrat',
       }
     },
   });
@@ -57,12 +57,12 @@ export default function faq() {
             <Typography variant="h6" style={{ fontWeight: "300", opacity: "0.5", marginTop: "10px", marginBottom: "50px" }}>Quick answers to questions you may have.</Typography>
             <Stack>
               {FaqQues.map((item, index) => (
-                <ListItem key={index} style={{marginBottom:"30px"}}>
-                    <ListItemIcon sx={{ border: "2px solid", borderRadius: "5px", width: "20px", height: "50px", marginRight: "20px", paddingLeft: "12px", paddingTop: "10px", color: letter, minWidth: "50px" }}>{item.icon}</ListItemIcon>
-                    <Stack flexDirection="column">
-                      <Typography component="div" style={{ fontSize: "20px",fontWeight:"700" }}>{item.ques}</Typography>
-                      <Typography component="div" style={{ fontSize: "18px", opacity:"0.7"}}>{item.ans}</Typography>
-                    </Stack>
+                <ListItem key={index} style={{ marginBottom: "30px" }}>
+                  <ListItemIcon sx={{ border: "2px solid", borderRadius: "5px", width: "20px", height: "50px", marginRight: "20px", paddingLeft: "12px", paddingTop: "10px", color: letter, minWidth: "50px" }}>{item.icon}</ListItemIcon>
+                  <Stack flexDirection="column">
+                    <Typography component="div" style={{ fontSize: "20px", fontWeight: "700" }}>{item.ques}</Typography>
+                    <Typography component="div" style={{ fontSize: "18px", opacity: "0.7" }}>{item.ans}</Typography>
+                  </Stack>
                 </ListItem>
               ))}
             </Stack>

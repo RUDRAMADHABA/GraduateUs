@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import NavigateNext from '@mui/icons-material/NavigateNext';
-import "@fontsource/poppins"
+import "@fontsource/Montserrat"
 
 export default function GuestFooter() {
   return (
@@ -14,7 +14,7 @@ export default function GuestFooter() {
     ,borderBottom: "1px solid #73777F",zIndex:"999",marginLeft:"260px"}}>
      <Box sx={{display:'flex',
 alignItems:'center',fontColor:'#45474A',marginTop:"20px",marginLeft:'32px'}}>       
-<Breadcrumbs aria-label="breadcrumb" separator={<NavigateNext fontSize="small" sx={{color:"#45474A",fontFamily:'poppins'}}/>}>
+<Breadcrumbs aria-label="breadcrumb" separator={<NavigateNext fontSize="small" sx={{color:"#45474A",fontFamily:'Montserrat'}}/>}>
         <Link
           underline="hover"
           sx={{ display: 'flex', alignItems: 'center' }}
@@ -29,12 +29,12 @@ alignItems:'center',fontColor:'#45474A',marginTop:"20px",marginLeft:'32px'}}>
           color="inherit"
           href="/settings"
         >
-          <Typography fontSize="inherit" color="#45474A" sx={{fontFamily:'poppins'}}>Settings</Typography>
+          <Typography fontSize="inherit" color="#45474A" sx={{fontFamily:'Montserrat'}}>Settings</Typography>
         </Link>
       </Breadcrumbs>  
 </Box>  
      
-        <Typography variant="h5" color="#00000" fontSize='34px'  marginTop="8px" marginLeft='32px' sx={{fontFamily:'poppins'}}>
+        <Typography variant="h5" color="#00000" fontSize='34px'  marginTop="8px" marginLeft='32px' sx={{fontFamily:'Montserrat'}}>
       {'Change Password '}
     </Typography>
       </Box>

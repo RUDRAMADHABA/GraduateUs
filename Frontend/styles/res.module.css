@@ -1,0 +1,80 @@
+.resup{
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 20px;
+    margin-bottom: 20px;
+}
+.restxt{
+    font-family:Montserrat;
+    font-weight:600;
+    
+}
+.resfilter button{
+    border: 2px solid #121212;
+    border-radius: 10px;
+    color: #121212;
+}
+
+.restaurantdatails{
+    display: flex;
+    /* gap: 3rem; */
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card{
+    width: 25vw;
+    min-height: 20vh;
+    min-width: 280px;
+    margin: 0 1rem 1rem 0;
+    cursor: pointer;
+}
+
+.restaurantCard{
+    width: 100%;
+    min-height: 20vh;
+    font-size: 0.9rem;
+    background-color: #efefef;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+}
+
+.cardimg{
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.cardimg img{
+    height: 14vh;
+    width: 100%; 
+    object-fit: cover;  
+    border-radius: 10px; 
+}
+
+.cardtxt{
+    height: 13vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin-right: 3px;
+}
+
+.resloc{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cardtxtdown{
+    font-size: 0.7rem;
+}
+
+.resname{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.distance{
+    font-size: 0.8rem;
+}

@@ -1,11 +1,7 @@
 import React from "react";
 import { TextField, Button, Typography, Grid, Toolbar, CssBaseline, Box, InputLabel, FilledInput, IconButton, Hidden } from "@mui/material";
 import Checkbox from '@mui/material/Checkbox';
-import logo from '/pictures/logo.png';
-import pic2 from '/pictures/pic2.png';
-import Link from 'next/link'
-import Image from 'next/image';
-import "@fontsource/Montserrat";
+import Link from 'next/link';
 import { Email } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -211,7 +207,7 @@ const Contact = () => {
                                         value={msg}
                                         multiline
                                         rows={4}
-                                        
+
                                         label={"Write your message here..."}
                                         onChange={(e) => {
                                             setMsg(e.target.value);
@@ -224,7 +220,7 @@ const Contact = () => {
                                         }}
                                         InputProps={{
                                             style: { color: letter }, // Set the font color here
-                                          }}
+                                        }}
                                         sx={{
                                             '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
                                                 borderColor: letter,

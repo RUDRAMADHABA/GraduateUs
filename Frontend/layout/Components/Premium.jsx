@@ -42,7 +42,7 @@ const Premium = () => {
                   animate={{y:0}}
                   transition={{duration:1, type:"spring" , stiffness:"300" , damping:10 , delay:0.2}}
                   >
-                 <Image src={Lamp1} width={500} height={456} style={{position:"relative" , bottom:"0.8em"}} className={styles.lamp}  />
+                 <Image alt='image' src={Lamp1} width={500} height={456} style={{position:"relative" , bottom:"0.8em"}} className={styles.lamp}  />
                   </motion.div>
                   <motion.div
                    initial={{ opacity:0}}
@@ -56,9 +56,9 @@ const Premium = () => {
                    animate={{y:0 , opacity:1}}
                    transition={{duration:0.7 , delay:0.5 }}
                   >
-                <h3 style={{textAlign:"center" , position:"relative" , bottom:"6.9em" , color:"#d9d9d9",opacity:"0.5"  , fontSize:"23px"}} className={styles.h3}  > <Image src={resume} width={40} height={40} style={{position:"relative" , top:"0.5em"}} /> Resume Review </h3>
-                <h3 style={{textAlign:"center" , position:"relative" , bottom:"6.9em" ,right:"0.75em",opacity:"0.5"  , color:"#d9d9d9" , fontSize:"23px"}} className={styles.h3}  > <Image src={alumni} width={40} height={40} style={{position:"relative" , top:"0.5em" }} /> Alumni Chat </h3>
-                <h3 style={{textAlign:"center" , position:"relative" , bottom:"6.9em" ,left:"0.5em",opacity:"0.5"  ,  color:"#d9d9d9" , fontSize:"23px"}} className={styles.h3} > <Image src={Referral} width={40} height={40} style={{position:"relative" , top:"0.5em"}} /> Referral Program</h3>
+                <h3 style={{textAlign:"center" , position:"relative" , bottom:"6.9em" , color:"#d9d9d9",opacity:"0.5"  , fontSize:"23px"}} className={styles.h3}  > <Image alt='image' src={resume} width={40} height={40} style={{position:"relative" , top:"0.5em"}} /> Resume Review </h3>
+                <h3 style={{textAlign:"center" , position:"relative" , bottom:"6.9em" ,right:"0.75em",opacity:"0.5"  , color:"#d9d9d9" , fontSize:"23px"}} className={styles.h3}  > <Image alt='image' src={alumni} width={40} height={40} style={{position:"relative" , top:"0.5em" }} /> Alumni Chat </h3>
+                <h3 style={{textAlign:"center" , position:"relative" , bottom:"6.9em" ,left:"0.5em",opacity:"0.5"  ,  color:"#d9d9d9" , fontSize:"23px"}} className={styles.h3} > <Image alt='image' src={Referral} width={40} height={40} style={{position:"relative" , top:"0.5em"}} /> Referral Program</h3>
                 </motion.div>
                 <motion.div
                    initial={{y:1000 , opacity:0}}
@@ -73,7 +73,7 @@ const Premium = () => {
                    animate={{ opacity:1}}
                    transition={{duration:1.5 , delay:0.5}}
                   >
-                <Image src={Premiumimage} width={500} height={500} style={{marginTop:"8em"}} className={styles.image} />
+                <Image alt='image' src={Premiumimage} width={500} height={500} style={{marginTop:"8em"}} className={styles.image} />
                 </motion.div>
               </div>
              )}

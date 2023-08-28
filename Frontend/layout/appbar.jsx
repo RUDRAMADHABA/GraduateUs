@@ -20,7 +20,7 @@ import Link from 'next/link';
 // import SignIN from '';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact', 'Help'];
+// const navItems = ['Home', 'About', 'Contact', 'Help'];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -33,28 +33,34 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', marginTop: "15px" }}>
       <Box sx={{display:'flex',marginLeft:'20px',marginTop:'40px',marginBottom:'20px'}}>
-      <Image src={logo} alt="IMAGE" height={35} width={35} /> <Typography fontFamily="poppins" fontWeight='500'
+      <Image src={logo} alt="IMAGE" height={35} width={35} /> <Typography fontFamily="Montserrat" fontWeight='500'
         fontSize='21px' color='#ffffff' sx={{ paddingLeft: "15px" }}>
         Graduate Us</Typography>
         </Box>
       <Divider />
-        {navItems.map((item) => (
+        {/* {navItems.map((item) => (
           <ListItem key={item} disablePadding >
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText><Typography sx={{ fontFamily: "poppins", textTransform: 'inherit', color: '#ffffff' }}>{item}</Typography></ListItemText>
+              <ListItemText><Typography sx={{ fontFamily: "Montserrat", textTransform: 'inherit', color: '#ffffff' }}>{item}</Typography></ListItemText>
             </ListItemButton>
           </ListItem>
-        ))}
+        ))} */}
       <Box sx={{display:'flex',justifyContent:"center"}}>
       <Link href={'signup'}><Button sx={{
                 border: '2px solid rgba(255, 255, 255,0.5)',
-                borderRadius: '14px', fontFamily: 'poppins', textTransform: "initial", color: "#ffffff", paddingLeft: '15px', paddingRight: '15px',textAlign: 'center',
+                borderRadius: '14px', fontFamily: 'Montserrat', textTransform: "initial", color: "#ffffff", paddingLeft: '15px', paddingRight: '15px',textAlign: 'center',
               }}>Sign Up</Button></Link>
             </Box>
             <Link href={'signin'}><Button sx={{
               border: '2px solid rgba(255, 255, 255, 0.44)',
-              borderRadius: '14px', fontFamily: 'poppins', textTransform: "initial", color: "#000000", paddingLeft: '15px', paddingRight: '15px', background: '#ffffff',textAlign: 'center', marginTop: "15px" 
-            }}>Sign In</Button></Link>
+              borderRadius: '14px', fontFamily: 'Montserrat', textTransform: "initial", color: "#000000", paddingLeft: '15px', paddingRight: '15px', background: '#ffffff',textAlign: 'center', marginTop: "15px","&:hover":{
+                color:"#f5f5f5"
+            }
+            }}>Sign In</Button></Link><br></br>
+            <Link href={'/contactus'}><Button sx={{
+                border: '2px solid rgba(255, 255, 255,0.5)',
+                borderRadius: '14px', fontFamily: 'Montserrat', textTransform: "initial", color: "#ffffff", paddingLeft: '15px', paddingRight: '15px',textAlign: 'center',marginTop:"15px"
+              }}>Contact Us</Button></Link>
     </Box>
   );
 
@@ -65,40 +71,52 @@ function DrawerAppBar(props) {
       <CssBaseline />
       <AppBar variant='nav' sx={{ background: '#151515' }} elevation={0}>
         <Toolbar>
+          
+          <Image src={logo} alt="IMAGE" height={25} width={25} /> <Typography fontFamily="Montserrat" fontWeight='500'
+            fontSize='21px' color='#FFFFFF' sx={{ display: 'flex', alignItems: 'center', paddingLeft: "15px" }}>
+            Graduate Us</Typography>
+            
+          <Box sx={{ display: "flex", margin: 'auto' }}>
+            {/* <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+
+              {navItems.map((item) => (
+                <Button sx={{ color: '#fff' }}>
+                  <Typography sx={{ fontFamily: "Montserrat", textTransform: 'initial', paddingLeft: "10px",paddingRight:"10px" }}>{item}</Typography>
+                </Button>
+              ))}
+            </Box> */}
+          </Box>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 4, display: { md: 'none' } }}
+            sx={{display: { md: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
-          <Image src={logo} alt="IMAGE" height={25} width={25} /> <Typography fontFamily="poppins" fontWeight='500'
-            fontSize='21px' color='#FFFFFF' sx={{ display: 'flex', alignItems: 'center', paddingLeft: "15px" }}>
-            Graduate Us</Typography>
-          <Box sx={{ display: "flex", margin: 'auto' }}>
-            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
-
-              {navItems.map((item) => (
-                <Button sx={{ color: '#fff' }}>
-                  <Typography sx={{ fontFamily: "poppins", textTransform: 'initial', paddingLeft: "10px",paddingRight:"10px" }}>{item}</Typography>
-                </Button>
-              ))}
-            </Box>
-          </Box>
           <Box sx={{ display: { xs: 'none', md: 'block' } }}>
             <Box sx={{display:'flex',flexDirection:'row'}}>
             <Box sx={{ display: 'flex', marginRight: '10px'}}>
             <Link href={'signup'}><Button sx={{
                 border: '2px solid rgba(255, 255, 255)',
-                borderRadius: '14px', fontFamily: 'poppins', textTransform: "initial", color: "#ffffff", paddingLeft: '15px', paddingRight: '15px'
+                borderRadius: '14px', fontFamily: 'Montserrat', textTransform: "initial", color: "#ffffff", paddingLeft: '15px', paddingRight: '15px',"&:hover":{
+                  color:"#000", background:"#f2f2f2"
+              }
               }}>Sign Up</Button></Link>
             </Box>
             <Link href={'signin'}><Button sx={{
+                border: '2px solid rgba(255, 255, 255)',
+                borderRadius: '14px', fontFamily: 'Montserrat', textTransform: "initial", color: "#ffffff", paddingLeft: '15px', paddingRight: '15px', marginRight:"10px","&:hover":{
+                  color:"#000", background:"#f2f2f2"
+              }
+              }}>Sign In</Button></Link>
+            <Link href={'/contactus'}><Button sx={{
               border: '2px solid rgba(255, 255, 255, 0.44)',
-              borderRadius: '14px', fontFamily: 'poppins', textTransform: "initial", color: "#000000", paddingLeft: '15px', paddingRight: '15px', background: '#ffffff'
-            }}>Sign In</Button></Link>
+              borderRadius: '14px', fontFamily: 'Montserrat', textTransform: "initial", color: "#000000", paddingLeft: '15px', paddingRight: '15px', background: '#ffffff',"&:hover":{
+                color:"#f5f5f5"
+            }
+            }}>Contact Us</Button></Link>
           </Box>
           </Box>
         </Toolbar>
@@ -107,6 +125,7 @@ function DrawerAppBar(props) {
         <Drawer
           container={container}
           variant="temporary"
+          anchor="left"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
