@@ -54,7 +54,7 @@ To keep you energized and focused, we have curated a list of restaurants where y
 
 Join our vibrant community and stay connected with other ambitious individuals. Share your success stories, seek guidance, and celebrate your achievements together.
 
-- Website: [Coming Soon...]()
+- Website: [graduateus.com](https://www.graduateus.com)
 - LinkedIn: [GraduateUs](https://www.linkedin.com/company/graduateus/)
 - Instagram: [@graduate.us](https://instagram.com/graduate.us?igshid=MzRlODBiNWFlZA==)
 
