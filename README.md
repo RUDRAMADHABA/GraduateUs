@@ -2,6 +2,12 @@
   <img src="https://github.com/Graduate-Us/Web-Version/assets/99486732/00cbc545-8794-43a6-a881-8ee04d7ebe43" alt="Logo">
 </p><h1 align="center"> Graduate Us</h1> 
 
+## What is Graduate Us ?
+<p>
+Graduateus is a platform to help undergraduate students become successful. We are building a platform for both web and app with a vision of providing them services like Internship opportunities, partime and full time jobs,contacting their alumnis and asking them for refferals for the same with attendance tracker, latest notes and much more.
+</p>
+
+
 ## <p > Video Preview </p>
 
 https://github.com/Graduate-Us/Web-Version/assets/99486732/6c7af91c-5094-4c60-b91c-aef80e303e6c
